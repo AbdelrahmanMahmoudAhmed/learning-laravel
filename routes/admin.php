@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+// Route::get('/admin', function () {
+//     return view('admin');
+// });
 // Route::get('/about', function () {
 //     return view('about');
 // });
@@ -30,4 +31,24 @@ Route::get('/admin', function () {
 //     ];
 
 //     return view('category' , ['name'=> $name , 'id'=> $categories[ $id ] ?? "this category not found" ,"year" => $year ]  );
+// });
+
+
+// Route::get('/admin' , 'Admin/AdminController@adminName');    why it's not working ?!!
+
+Route::get('/admin' , [AdminController::class, 'adminName']);
+Route::get('/panel' , [AdminController::class, 'double']);
+Route::get('/login' , function ( ) {
+    return 'login page';
+})-> name('login') ;
+
+
+
+
+
+
+// !!
+// Route::group( ['namespace' => 'Admin']   , function(){
+// Route::get('/admin' , 'AdminController@adminName');
+
 // });

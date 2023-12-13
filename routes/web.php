@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\UserController;
 
@@ -45,5 +46,6 @@ Route::group(["prefix"=> "main" , "namespace"=> "Front"], function () {
     // Route::get("/users","UserController@showName");
     Route::get('/users', [UserController::class, 'showName']);
 });
+Route::resource('/news', NewsController::class);
 
 
